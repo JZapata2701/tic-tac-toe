@@ -2,6 +2,10 @@ open System
 
 let board = [["X";"O";"X"];["X";"X";"O"];["O";"X";"X"]]
 
+let mutable turn = " "
+
+let mutable times = 0
+
 let player1 = 
     printf "Player one: "
     Console.ReadLine()
@@ -47,12 +51,23 @@ let winnerLine (board:string list list) =
     else
         false
 
-let ticTacToe (board : string list list ) (player1 : string) (player2 : string) (turn : string)=
+let game (board : string list list) (p1 : string) (p2 : string) (turn : string)=
+    "aqui pondre el codigo"        
+
+let ticTacToe (board : string list list ) (player1 : string) (player2 : string) 
+              (turn : string) (times : int)=
     if winnerLine board then
         printfn "hay un ganador"
+    else if times = 9 then
+        printfn "empate"
+    else
+        let mutable internalturn = " "
+        internalturn <- playerTurn (turn)
+        let mutable (internaltimes : int) = 0
+        internaltimes <- times + 1
     
     
 
-let mutable (turn : string) = " "
+
 showBoard board
 ticTacToe board
